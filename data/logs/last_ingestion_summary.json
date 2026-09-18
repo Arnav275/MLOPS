@@ -1,0 +1,18 @@
+[
+  {
+    "source_name": "math",
+    "source_path": "data\\raw\\student-mat.csv",
+    "extraction_timestamp_utc": "20260902T160238Z",
+    "status": "SUCCESS",
+    "row_count": 395,
+    "error_message": ""
+  },
+  {
+    "source_name": "portuguese",
+    "source_path": "data\\raw\\student-por.csv",
+    "extraction_timestamp_utc": "20260902T160238Z",
+    "status": "SUCCESS",
+    "row_count": 649,
+    "error_message": ""
+  }
+]

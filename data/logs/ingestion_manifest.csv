@@ -1,0 +1,11 @@
+source_name,source_path,extraction_timestamp_utc,status,row_count,error_message
+math,data\raw\student-mat.csv,20260902T124350Z,SUCCESS,395,
+portuguese,data\raw\student-por.csv,20260902T124350Z,SUCCESS,649,
+math,data\raw\student-mat.csv,20260902T125047Z,SUCCESS,395,
+portuguese,data\raw\student-por.csv,20260902T125047Z,SUCCESS,649,
+math,data\raw\student-mat.csv,20260902T125237Z,SUCCESS,395,
+portuguese,data\raw\student-por.csv,20260902T125237Z,SUCCESS,649,
+math,data\raw\student-mat.csv,20260902T125437Z,SUCCESS,395,
+portuguese,data\raw\student-por.csv,20260902T125437Z,SUCCESS,649,
+math,data\raw\student-mat.csv,20260902T160238Z,SUCCESS,395,
+portuguese,data\raw\student-por.csv,20260902T160238Z,SUCCESS,649,
