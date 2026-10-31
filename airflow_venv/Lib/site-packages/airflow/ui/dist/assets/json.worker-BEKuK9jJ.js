@@ -1,1 +1,0 @@
-var e=``+new URL(`json.worker-CwH8vkY1.js`,import.meta.url).href;export{e as default};
