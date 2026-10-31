@@ -1,9 +1,0 @@
-school,subject,avg_final_marks,avg_attendance_pct,avg_risk_score,student_count
-GP,math,10.49,93.59,30.53,349
-GP,portuguese,12.58,95.47,27.61,423
-GP,student-mat,10.49,93.59,30.53,349
-GP,student-por,12.58,95.47,27.61,423
-MS,math,9.85,95.96,31.62,46
-MS,portuguese,10.65,97.18,31.46,226
-MS,student-mat,9.85,95.96,31.62,46
-MS,student-por,10.65,97.18,31.46,226
