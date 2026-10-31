@@ -1,0 +1,24 @@
+{
+  "rows": 1044,
+  "fail_rate": 0.2203,
+  "sha256": "8f4e5bbc8f609d50262386e5b958bf4fd9ef8389ec9593db6bcf2d5d693d5ffd",
+  "splits": {
+    "test": {
+      "rows": 212,
+      "fail_rate": 0.2217,
+      "students": 134
+    },
+    "train": {
+      "rows": 625,
+      "fail_rate": 0.2192,
+      "students": 396
+    },
+    "val": {
+      "rows": 207,
+      "fail_rate": 0.2222,
+      "students": 132
+    }
+  },
+  "group_leakage": 0,
+  "missing_cells": 0
+}

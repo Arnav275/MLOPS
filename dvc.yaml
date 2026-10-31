@@ -1,0 +1,59 @@
+# Reproducible ML pipeline:   dvc repro        (DAG: prepare -> train)
+# Metrics / diffs:            dvc metrics show | dvc metrics diff | dvc params diff
+# NOTE: `train` also logs to the MLflow store (mlflow/) and registers/promotes the model there;
+#       models/champion is the exported serving bundle of the registry champion.
+stages:
+  prepare:
+    cmd: python -m ml.data
+    deps:
+      - ml/data.py
+      - ml/features.py
+      - data/analytical/fact_student_performance.csv
+    params:
+      - seed
+      - data
+      - split
+    outs:
+      - data/modelling/student_modelling.csv
+    metrics:
+      - reports/data_profile.json:
+          cache: false
+
+  train:
+    cmd: python -m ml.train
+    deps:
+      - ml/train.py
+      - ml/features.py
+      - ml/metrics.py
+      - ml/reference.py
+      - ml/registry.py
+      - ml/bundle.py
+      - data/modelling/student_modelling.csv
+    params:
+      - seed
+      - features
+      - model
+      - mlflow
+    outs:
+      - models/champion
+      - reports/evaluation.json:
+          cache: false
+    metrics:
+      - reports/metrics.json:
+          cache: false
+    plots:
+      - reports/curves.png:
+          cache: false
+      - reports/confusion_matrix.png:
+          cache: false
+      - reports/feature_importance.png:
+          cache: false
+
+  score:
+    cmd: python -m ml.batch_score --no-postgres
+    deps:
+      - ml/batch_score.py
+      - models/champion
+      - data/analytical/fact_student_performance.csv
+    outs:
+      - data/analytical/mart_student_risk_predictions.csv

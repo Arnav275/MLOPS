@@ -1,0 +1,44 @@
+{
+  "subject=math": {
+    "n": 81,
+    "positives": 27,
+    "recall": 1.0,
+    "precision": 0.675,
+    "pr_auc": 0.9511041306619212
+  },
+  "subject=portuguese": {
+    "n": 131,
+    "positives": 20,
+    "recall": 0.85,
+    "precision": 0.4722222222222222,
+    "pr_auc": 0.6438581166118762
+  },
+  "sex=F": {
+    "n": 127,
+    "positives": 28,
+    "recall": 0.9642857142857143,
+    "precision": 0.5625,
+    "pr_auc": 0.8688559530884422
+  },
+  "sex=M": {
+    "n": 85,
+    "positives": 19,
+    "recall": 0.8947368421052632,
+    "precision": 0.6071428571428571,
+    "pr_auc": 0.8310017962356591
+  },
+  "school=GP": {
+    "n": 161,
+    "positives": 33,
+    "recall": 0.9696969696969697,
+    "precision": 0.5818181818181818,
+    "pr_auc": 0.8776428968367256
+  },
+  "school=MS": {
+    "n": 51,
+    "positives": 14,
+    "recall": 0.8571428571428571,
+    "precision": 0.5714285714285714,
+    "pr_auc": 0.7975699585044935
+  }
+}

@@ -1,0 +1,56 @@
+artifact_path: file:///C:/Users/shail/Downloads/MLOPS_project_part2/student_pipeline/mlflow/artifacts/models/m-35f15340e9a14e669356160dbdb6d9a8/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.14.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.9.1
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.17.0
+model_id: m-35f15340e9a14e669356160dbdb6d9a8
+model_size_bytes: 12089
+model_uuid: m-35f15340e9a14e669356160dbdb6d9a8
+prompts: null
+run_id: af1bd95b44bd42d7b786a4f9cbeea39d
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "long", "name": "age", "required": true}, {"type": "long", "name":
+    "medu", "required": true}, {"type": "long", "name": "fedu", "required": true},
+    {"type": "long", "name": "traveltime", "required": true}, {"type": "long", "name":
+    "studytime", "required": true}, {"type": "long", "name": "failures", "required":
+    true}, {"type": "long", "name": "famrel", "required": true}, {"type": "long",
+    "name": "freetime", "required": true}, {"type": "long", "name": "goout", "required":
+    true}, {"type": "long", "name": "dalc", "required": true}, {"type": "long", "name":
+    "walc", "required": true}, {"type": "long", "name": "health", "required": true},
+    {"type": "long", "name": "absences", "required": true}, {"type": "long", "name":
+    "g1", "required": true}, {"type": "long", "name": "g2", "required": true}, {"type":
+    "string", "name": "subject", "required": true}, {"type": "string", "name": "school",
+    "required": true}, {"type": "string", "name": "sex", "required": true}, {"type":
+    "string", "name": "address", "required": true}, {"type": "string", "name": "famsize",
+    "required": true}, {"type": "string", "name": "pstatus", "required": true}, {"type":
+    "string", "name": "mjob", "required": true}, {"type": "string", "name": "fjob",
+    "required": true}, {"type": "string", "name": "reason", "required": true}, {"type":
+    "string", "name": "guardian", "required": true}, {"type": "string", "name": "schoolsup",
+    "required": true}, {"type": "string", "name": "famsup", "required": true}, {"type":
+    "string", "name": "paid", "required": true}, {"type": "string", "name": "activities",
+    "required": true}, {"type": "string", "name": "nursery", "required": true}, {"type":
+    "string", "name": "higher", "required": true}, {"type": "string", "name": "internet",
+    "required": true}, {"type": "string", "name": "romantic", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1,
+    2]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-10-07 11:05:14.621567'

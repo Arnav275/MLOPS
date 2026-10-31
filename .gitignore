@@ -1,0 +1,31 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# ---- Part 2 (MLOps) ----
+mlflow/                      # tracking DB + artefacts (regenerate with `python -m ml.train`)
+mlruns/
+monitoring/data/             # prediction / request / label log (runtime data)
+monitoring/reports/
+data/modelling/              # DVC-tracked (see dvc.yaml)
+/.dvc/cache
+/.dvc/tmp

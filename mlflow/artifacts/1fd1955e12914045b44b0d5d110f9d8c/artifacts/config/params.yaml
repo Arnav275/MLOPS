@@ -1,0 +1,74 @@
+# Single source of truth for the Part 2 ML pipeline.
+# Read by ml/*, monitoring/*, api/* and tracked by DVC (dvc.yaml `params:`).
+seed: 42
+reports_dir: reports
+
+data:
+  fact_table: data/analytical/fact_student_performance.csv   # Part 1 output
+  subjects: [math, portuguese]          # canonical sources (ignores stale student-mat / student-por copies)
+  pass_mark: 10                         # target: fail = G3 < pass_mark
+  modelling_dataset: data/modelling/student_modelling.csv
+  # Attributes that identify the same physical student across the math and
+  # portuguese files (UCI documentation: 382 students appear in both).
+  # Used ONLY to keep a student's two rows in the same split (no leakage).
+  group_keys: [school, sex, age, address, famsize, pstatus, medu, fedu, mjob, fjob, reason, nursery, internet]
+
+split:
+  method: stratified_group              # no timestamp exists in the data -> problem-appropriate split
+  test_size: 0.20
+  val_size: 0.20
+
+features:
+  # early    : only information available after period 1  (G1, no G2)  -> earliest warning
+  # mid_term : information available after period 2        (G1 + G2)   -> most accurate
+  scenario: mid_term
+
+model:
+  selection_metric: pr_auc              # robust to the ~22% positive-class imbalance
+  simplicity_tolerance: 0.01            # prefer the simpler model if within this PR-AUC of the best
+  threshold_strategy: f2                # recall-weighted: missing a failing student costs more than a false alarm
+  # Low < decision threshold <= Medium < high <= High   (so 'predicted_fail' and band never disagree)
+  risk_bands: {high: 0.60}
+  promotion:
+    epsilon: 0.005                      # challenger may be this much worse on PR-AUC and still be promoted
+    min_recall: 0.70                    # never promote a model that recalls < 70% of failing students
+  candidates:
+    logistic_regression:
+      grid: {C: [0.01, 0.1, 1.0, 10.0]}
+    random_forest:
+      grid: {n_estimators: [200, 400], max_depth: [4, 8, null], min_samples_leaf: [2, 5]}
+    xgboost:
+      grid: {n_estimators: [150, 300], max_depth: [2, 3, 4], learning_rate: [0.03, 0.1], subsample: [0.8], colsample_bytree: [0.8]}
+
+mlflow:
+  tracking_uri: sqlite:///mlflow/mlflow.db
+  experiment: student-fail-risk
+  registered_model: student-fail-risk
+  champion_alias: champion
+  challenger_alias: challenger
+
+serving:
+  champion_dir: models/champion
+  max_batch_size: 1000
+
+monitoring:
+  db_path: monitoring/data/monitoring.db
+  reports_dir: monitoring/reports
+  min_samples: 50                       # below this, drift stats are reported as INSUFFICIENT_DATA (>=150 recommended)
+  psi: {warn: 0.10, alert: 0.25}
+  ks_pvalue_alert: 0.01
+  quality:
+    max_missing_rate_increase: 0.10     # absolute increase vs. training
+    max_unseen_category_rate: 0.02
+    max_out_of_range_rate: 0.01
+  latency_ms: {p95_warn: 200, p95_alert: 500}
+  error_rate: {warn: 0.01, alert: 0.02}
+  retrain:
+    key_features: [g1, g2, absences, failures]
+    max_alert_features: 3               # >= this many features with PSI alert -> retrain
+    min_labels: 50                      # ground-truth outcomes needed before judging performance
+    max_recall_drop: 0.10
+    max_pr_auc_drop: 0.10
+    max_prevalence_shift: 0.10          # absolute change in actual fail rate vs. training
+    max_model_age_days: 180             # ~ one academic term
+    new_data_fraction: 0.25             # new labelled rows / training rows

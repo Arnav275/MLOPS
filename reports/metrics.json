@@ -1,0 +1,12 @@
+{
+  "threshold": 0.24,
+  "val_pr_auc": 0.9136,
+  "val_recall": 1.0,
+  "val_precision": 0.6301,
+  "test_pr_auc": 0.8514,
+  "test_roc_auc": 0.9444,
+  "test_recall": 0.9362,
+  "test_precision": 0.5789,
+  "test_f2": 0.8333,
+  "test_brier": 0.1011
+}

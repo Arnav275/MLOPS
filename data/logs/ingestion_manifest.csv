@@ -1,0 +1,13 @@
+source_name,source_path,extraction_timestamp_utc,status,row_count,error_message
+math,data\raw\student-mat.csv,20260902T124350Z,SUCCESS,395,
+portuguese,data\raw\student-por.csv,20260902T124350Z,SUCCESS,649,
+math,data\raw\student-mat.csv,20260902T125047Z,SUCCESS,395,
+portuguese,data\raw\student-por.csv,20260902T125047Z,SUCCESS,649,
+math,data\raw\student-mat.csv,20260902T125237Z,SUCCESS,395,
+portuguese,data\raw\student-por.csv,20260902T125237Z,SUCCESS,649,
+math,data\raw\student-mat.csv,20260902T125437Z,SUCCESS,395,
+portuguese,data\raw\student-por.csv,20260902T125437Z,SUCCESS,649,
+math,data\raw\student-mat.csv,20260902T160238Z,SUCCESS,395,
+portuguese,data\raw\student-por.csv,20260902T160238Z,SUCCESS,649,
+math,C:\Users\shail\Downloads\MLOPS_project_part2\student_pipeline\data\raw\student-mat.csv,20261008T162403Z,SUCCESS,395,
+portuguese,C:\Users\shail\Downloads\MLOPS_project_part2\student_pipeline\data\raw\student-por.csv,20261008T162403Z,SUCCESS,649,

@@ -1,0 +1,14 @@
+pandas>=2.0
+numpy>=1.24
+streamlit>=1.32
+plotly>=5.20
+statsmodels>=0.14
+requests>=2.31
+SQLAlchemy>=2.0
+psycopg2-binary>=2.9
+python-dotenv>=1.0
+PyYAML>=6.0
+scipy>=1.11
+scikit-learn>=1.5
+xgboost>=2.0
+joblib>=1.3

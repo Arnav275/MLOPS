@@ -1,0 +1,30 @@
+{
+  "logistic_regression": {
+    "hp": {
+      "C": 1.0
+    },
+    "val_pr_auc": 0.9136,
+    "val_recall": 1.0,
+    "train_pr_auc": 0.9542
+  },
+  "random_forest": {
+    "hp": {
+      "max_depth": 4,
+      "min_samples_leaf": 5,
+      "n_estimators": 50
+    },
+    "val_pr_auc": 0.8787,
+    "val_recall": 0.9783,
+    "train_pr_auc": 0.9578
+  },
+  "xgboost": {
+    "hp": {
+      "learning_rate": 0.1,
+      "max_depth": 2,
+      "n_estimators": 50
+    },
+    "val_pr_auc": 0.9041,
+    "val_recall": 1.0,
+    "train_pr_auc": 0.9569
+  }
+}

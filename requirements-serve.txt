@@ -1,0 +1,13 @@
+# Minimal runtime for the inference container (no MLflow / DVC / training extras).
+# scikit-learn and xgboost MUST match the versions used to train the bundled model.
+fastapi==0.142.2
+uvicorn[standard]==0.53.0
+pydantic==2.13.5
+pandas==3.0.5
+numpy==2.5.3
+scipy==1.18.1
+scikit-learn==1.9.1
+xgboost==3.4.1
+joblib==1.6.0
+prometheus-client==0.26.0
+PyYAML==6.0.3

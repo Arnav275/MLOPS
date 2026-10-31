@@ -1,0 +1,250 @@
+{
+  "scenario": "mid_term",
+  "champion": {
+    "family": "logistic_regression",
+    "hp": {
+      "C": 1.0
+    },
+    "threshold": 0.24,
+    "registry_version": 2
+  },
+  "validation": {
+    "n": 207,
+    "positives": 46,
+    "threshold": 0.24,
+    "pr_auc": 0.9135615748824765,
+    "roc_auc": 0.9738050229543613,
+    "recall": 1.0,
+    "precision": 0.6301369863013698,
+    "f1": 0.773109243697479,
+    "f2": 0.8949416342412452,
+    "accuracy": 0.8695652173913043,
+    "brier": 0.07173156659617305,
+    "tn": 134,
+    "fp": 27,
+    "fn": 0,
+    "tp": 46
+  },
+  "test": {
+    "n": 212,
+    "positives": 47,
+    "threshold": 0.24,
+    "pr_auc": 0.8513999300719362,
+    "roc_auc": 0.9444229529335912,
+    "recall": 0.9361702127659575,
+    "precision": 0.5789473684210527,
+    "f1": 0.7154471544715447,
+    "f2": 0.8333333333333334,
+    "accuracy": 0.8349056603773585,
+    "brier": 0.10107044979788396,
+    "tn": 133,
+    "fp": 32,
+    "fn": 3,
+    "tp": 44
+  },
+  "test_ci95": {
+    "pr_auc": [
+      0.7536035663100008,
+      0.9189799965549013
+    ],
+    "roc_auc": [
+      0.9072804232804232,
+      0.9721381792224304
+    ],
+    "recall": [
+      0.8627450980392157,
+      1.0
+    ],
+    "precision": [
+      0.4696634062140392,
+      0.6973999639509733
+    ]
+  },
+  "leaderboard_val": {
+    "logistic_regression": {
+      "hp": {
+        "C": 1.0
+      },
+      "val_pr_auc": 0.9136,
+      "val_recall": 1.0,
+      "train_pr_auc": 0.9542
+    },
+    "random_forest": {
+      "hp": {
+        "max_depth": 4,
+        "min_samples_leaf": 5,
+        "n_estimators": 50
+      },
+      "val_pr_auc": 0.8787,
+      "val_recall": 0.9783,
+      "train_pr_auc": 0.9578
+    },
+    "xgboost": {
+      "hp": {
+        "learning_rate": 0.1,
+        "max_depth": 2,
+        "n_estimators": 50
+      },
+      "val_pr_auc": 0.9041,
+      "val_recall": 1.0,
+      "train_pr_auc": 0.9569
+    }
+  },
+  "test_by_family": {
+    "logistic_regression": {
+      "pr_auc": 0.8514,
+      "roc_auc": 0.9444,
+      "recall": 0.9362,
+      "precision": 0.5789,
+      "f2": 0.8333
+    },
+    "random_forest": {
+      "pr_auc": 0.8489,
+      "roc_auc": 0.9611,
+      "recall": 0.9574,
+      "precision": 0.6081,
+      "f2": 0.8588
+    },
+    "xgboost": {
+      "pr_auc": 0.8653,
+      "roc_auc": 0.962,
+      "recall": 0.9787,
+      "precision": 0.5679,
+      "f2": 0.855
+    }
+  },
+  "baselines_test": {
+    "prior_only": {
+      "n": 212,
+      "positives": 47,
+      "threshold": 0.5,
+      "pr_auc": 0.22169811320754718,
+      "roc_auc": 0.5,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "f2": 0.0,
+      "accuracy": 0.7783018867924528,
+      "brier": 0.17255430037735847,
+      "tn": 165,
+      "fp": 0,
+      "fn": 47,
+      "tp": 0
+    },
+    "rule_g2_below_pass": {
+      "n": 212,
+      "positives": 47,
+      "threshold": 0.5,
+      "pr_auc": 0.6577679646728221,
+      "roc_auc": 0.9074790457769181,
+      "recall": 0.9361702127659575,
+      "precision": 0.6875,
+      "f1": 0.7927927927927928,
+      "f2": 0.873015873015873,
+      "accuracy": 0.8915094339622641,
+      "brier": 0.10849056603773585,
+      "tn": 145,
+      "fp": 20,
+      "fn": 3,
+      "tp": 44
+    }
+  },
+  "baselines_val": {
+    "prior_only": {
+      "n": 207,
+      "positives": 46,
+      "threshold": 0.5,
+      "pr_auc": 0.2222222222222222,
+      "roc_auc": 0.5,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "f2": 0.0,
+      "accuracy": 0.7777777777777778,
+      "brier": 0.17284864,
+      "tn": 161,
+      "fp": 0,
+      "fn": 46,
+      "tp": 0
+    },
+    "rule_g2_below_pass": {
+      "n": 207,
+      "positives": 46,
+      "threshold": 0.5,
+      "pr_auc": 0.6473429951690821,
+      "roc_auc": 0.9099378881987578,
+      "recall": 0.9565217391304348,
+      "precision": 0.6666666666666666,
+      "f1": 0.7857142857142857,
+      "f2": 0.88,
+      "accuracy": 0.8840579710144928,
+      "brier": 0.11594202898550725,
+      "tn": 139,
+      "fp": 22,
+      "fn": 2,
+      "tp": 44
+    }
+  },
+  "slices_test": {
+    "subject=math": {
+      "n": 81,
+      "positives": 27,
+      "recall": 1.0,
+      "precision": 0.675,
+      "pr_auc": 0.9511041306619212
+    },
+    "subject=portuguese": {
+      "n": 131,
+      "positives": 20,
+      "recall": 0.85,
+      "precision": 0.4722222222222222,
+      "pr_auc": 0.6438581166118762
+    },
+    "sex=F": {
+      "n": 127,
+      "positives": 28,
+      "recall": 0.9642857142857143,
+      "precision": 0.5625,
+      "pr_auc": 0.8688559530884422
+    },
+    "sex=M": {
+      "n": 85,
+      "positives": 19,
+      "recall": 0.8947368421052632,
+      "precision": 0.6071428571428571,
+      "pr_auc": 0.8310017962356591
+    },
+    "school=GP": {
+      "n": 161,
+      "positives": 33,
+      "recall": 0.9696969696969697,
+      "precision": 0.5818181818181818,
+      "pr_auc": 0.8776428968367256
+    },
+    "school=MS": {
+      "n": 51,
+      "positives": 14,
+      "recall": 0.8571428571428571,
+      "precision": 0.5714285714285714,
+      "pr_auc": 0.7975699585044935
+    }
+  },
+  "top_features": {
+    "g2": 0.541,
+    "g1": 0.0722,
+    "subject": 0.0348,
+    "walc": 0.034,
+    "absences": 0.0251,
+    "school": 0.0152,
+    "fjob": 0.0123,
+    "fedu": 0.0116,
+    "traveltime": 0.0088,
+    "guardian": 0.0084
+  },
+  "promotion": {
+    "promote": true,
+    "reason": "challenger PR-AUC 0.8514 vs champion v1 0.8514 (delta +0.0000, epsilon 0.005)",
+    "champion_version": 1
+  },
+  "run_id": "52336f8956d449d2a7d46b0578d00301"
+}

@@ -1,0 +1,5 @@
+subject,FAIL,PASS,pass_rate_pct
+math,130,265,67.09
+portuguese,100,549,84.59
+student-mat,130,265,67.09
+student-por,100,549,84.59

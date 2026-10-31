@@ -1,0 +1,200 @@
+{
+  "generated_at": "2026-10-04T17:20:16+00:00",
+  "source": "api_prediction_log(SIMULATED:concept_drift)",
+  "model": {
+    "version": "1",
+    "family": "logistic_regression",
+    "scenario": "mid_term",
+    "trained_at": "2026-10-04T17:18:26.878034+00:00",
+    "threshold": 0.24
+  },
+  "n_predictions": 150,
+  "feature_drift": [
+    {
+      "psi": 0.201,
+      "ks_stat": 0.1115,
+      "ks_pvalue": 0.09121765263162868,
+      "ref_mean": 11.357,
+      "cur_mean": 11.093,
+      "feature": "g2",
+      "type": "numeric",
+      "n": 150,
+      "status": "OK",
+      "chi2_pvalue": null
+    },
+    {
+      "psi": 0.1777,
+      "ks_stat": 0.0525,
+      "ks_pvalue": 0.8730417335608244,
+      "ref_mean": 16.781,
+      "cur_mean": 16.767,
+      "feature": "age",
+      "type": "numeric",
+      "n": 150,
+      "status": "OK",
+      "chi2_pvalue": null
+    },
+    {
+      "psi": 0.1494,
+      "ks_stat": 0.0541,
+      "ks_pvalue": 0.849512039428657,
+      "ref_mean": 1.968,
+      "cur_mean": 1.873,
+      "feature": "studytime",
+      "type": "numeric",
+      "n": 150,
+      "status": "OK",
+      "chi2_pvalue": null
+    },
+    {
+      "psi": 0.142,
+      "ks_stat": 0.0421,
+      "ks_pvalue": 0.9759617222398684,
+      "ref_mean": 1.509,
+      "cur_mean": 1.393,
+      "feature": "dalc",
+      "type": "numeric",
+      "n": 150,
+      "status": "OK",
+      "chi2_pvalue": null
+    },
+    {
+      "psi": 0.1121,
+      "ks_stat": null,
+      "ks_pvalue": null,
+      "ref_mean": null,
+      "cur_mean": null,
+      "feature": "nursery",
+      "type": "categorical",
+      "n": 150,
+      "status": "WARN",
+      "chi2_pvalue": 0.0001556446675716647
+    },
+    {
+      "psi": 0.0998,
+      "ks_stat": 0.1061,
+      "ks_pvalue": 0.1213229865089684,
+      "ref_mean": 11.307,
+      "cur_mean": 10.82,
+      "feature": "g1",
+      "type": "numeric",
+      "n": 150,
+      "status": "OK",
+      "chi2_pvalue": null
+    },
+    {
+      "psi": 0.0958,
+      "ks_stat": 0.0445,
+      "ks_pvalue": 0.9605473140345462,
+      "ref_mean": 3.96,
+      "cur_mean": 3.953,
+      "feature": "famrel",
+      "type": "numeric",
+      "n": 150,
+      "status": "OK",
+      "chi2_pvalue": null
+    },
+    {
+      "psi": 0.0935,
+      "ks_stat": null,
+      "ks_pvalue": null,
+      "ref_mean": null,
+      "cur_mean": null,
+      "feature": "guardian",
+      "type": "categorical",
+      "n": 150,
+      "status": "OK",
+      "chi2_pvalue": 0.002079349139642187
+    }
+  ],
+  "score_drift": {
+    "psi": 0.1472,
+    "ks_pvalue": 0.2249275086814059,
+    "n": 150,
+    "ref_mean_score": 0.2959,
+    "cur_mean_score": 0.3153,
+    "status": "WARN"
+  },
+  "class_distribution": {
+    "reference_fail_rate": 0.2192,
+    "predicted_fail_rate": 0.36,
+    "predicted_fail_rate_shift": 0.0073,
+    "band_mix": {
+      "Low": 0.64,
+      "High": 0.3133,
+      "Medium": 0.0467
+    },
+    "actual_fail_rate": 0.46,
+    "actual_prevalence_shift": 0.2408,
+    "n_labels": 150
+  },
+  "data_quality": {
+    "status": "OK",
+    "n": 150,
+    "issues": []
+  },
+  "performance": {
+    "n_labels": 150,
+    "baseline": {
+      "recall": 0.9362,
+      "precision": 0.5789,
+      "pr_auc": 0.8514,
+      "brier": 0.1011
+    },
+    "current": {
+      "recall": 0.3913,
+      "precision": 0.5,
+      "pr_auc": 0.5167,
+      "brier": 0.3931,
+      "accuracy": 0.54,
+      "f2": 0.4091
+    },
+    "confusion": {
+      "tn": 54,
+      "fp": 27,
+      "fn": 42,
+      "tp": 27
+    },
+    "recall_drop": 0.5449,
+    "pr_auc_drop": 0.3347,
+    "status": "ALERT"
+  },
+  "service": {
+    "requests": 300,
+    "error_rate_5xx": 0.0,
+    "rejected_rate_4xx": 0.0,
+    "latency_ms": {
+      "p50": 15.65,
+      "p95": 59.39,
+      "p99": 69.62
+    },
+    "by_endpoint": {
+      "/feedback": {
+        "n": 150,
+        "p95_ms": 4.06
+      },
+      "/predict": {
+        "n": 150,
+        "p95_ms": 64.07
+      }
+    },
+    "status": "OK"
+  },
+  "new_labelled_rows": 150,
+  "overall_status": "ALERT",
+  "retraining": {
+    "action": "RETRAIN",
+    "triggers": [
+      {
+        "id": "R2_performance",
+        "detail": "recall drop 0.5449, PR-AUC drop 0.3347 on 150 outcomes"
+      },
+      {
+        "id": "R3_class_prior",
+        "detail": "actual fail rate 46.0% vs 21.9% in training"
+      }
+    ],
+    "investigate": [],
+    "model_age_days": 0
+  }
+}

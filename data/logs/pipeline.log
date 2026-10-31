@@ -1,0 +1,114 @@
+2026-09-02 18:13:49 | INFO     | run_pipeline | === STAGE 1: INGEST ===
+2026-09-02 18:13:49 | INFO     | ingest | Requesting UCI dataset from https://archive.ics.uci.edu/ml/machine-learning-databases/00320/student.zip
+2026-09-02 18:13:50 | INFO     | ingest | Downloaded and extracted: ['student-mat.csv', 'student-por.csv']
+2026-09-02 18:13:50 | INFO     | ingest | Ingested 'math' -> math_20260902T124350Z.csv (395 rows)
+2026-09-02 18:13:50 | INFO     | ingest | Ingested 'portuguese' -> portuguese_20260902T124350Z.csv (649 rows)
+2026-09-02 18:13:50 | INFO     | run_pipeline | === STAGE 2: VALIDATE & CLEAN ===
+2026-09-02 18:13:50 | INFO     | validate_clean | Validating/cleaning source 'math' from math_20260902T124350Z.csv
+2026-09-02 18:13:50 | INFO     | validate_clean | 'math' summary: {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}
+2026-09-02 18:13:50 | INFO     | validate_clean | Validating/cleaning source 'portuguese' from portuguese_20260902T124350Z.csv
+2026-09-02 18:13:50 | INFO     | validate_clean | 'portuguese' summary: {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}
+2026-09-02 18:13:50 | INFO     | validate_clean | Validating/cleaning source 'student-mat' from student-mat.csv
+2026-09-02 18:13:50 | INFO     | validate_clean | 'student-mat' summary: {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}
+2026-09-02 18:13:50 | INFO     | validate_clean | Validating/cleaning source 'student-por' from student-por.csv
+2026-09-02 18:13:50 | INFO     | validate_clean | 'student-por' summary: {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}
+2026-09-02 18:13:50 | INFO     | run_pipeline | Clean summary: {'math': {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}, 'portuguese': {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}, 'student-mat': {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}, 'student-por': {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}}
+2026-09-02 18:13:50 | INFO     | run_pipeline | === STAGE 3: TRANSFORM ===
+2026-09-02 18:13:51 | INFO     | transform | Wrote fact table -> data\analytical\fact_student_performance.csv (2088 rows)
+2026-09-02 18:13:51 | INFO     | transform | Wrote dim_student -> data\analytical\dim_student.csv (1693 rows)
+2026-09-02 18:20:47 | INFO     | run_pipeline | === STAGE 1: INGEST ===
+2026-09-02 18:20:47 | INFO     | ingest | Ingested 'math' -> math_20260902T125047Z.csv (395 rows)
+2026-09-02 18:20:47 | INFO     | ingest | Ingested 'portuguese' -> portuguese_20260902T125047Z.csv (649 rows)
+2026-09-02 18:20:47 | INFO     | run_pipeline | === STAGE 2: VALIDATE & CLEAN ===
+2026-09-02 18:20:47 | INFO     | validate_clean | Validating/cleaning source 'math' from math_20260902T125047Z.csv
+2026-09-02 18:20:47 | INFO     | validate_clean | 'math' summary: {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}
+2026-09-02 18:20:47 | INFO     | validate_clean | Validating/cleaning source 'portuguese' from portuguese_20260902T125047Z.csv
+2026-09-02 18:20:47 | INFO     | validate_clean | 'portuguese' summary: {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}
+2026-09-02 18:20:47 | INFO     | validate_clean | Validating/cleaning source 'student-mat' from student-mat.csv
+2026-09-02 18:20:47 | INFO     | validate_clean | 'student-mat' summary: {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}
+2026-09-02 18:20:47 | INFO     | validate_clean | Validating/cleaning source 'student-por' from student-por.csv
+2026-09-02 18:20:47 | INFO     | validate_clean | 'student-por' summary: {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}
+2026-09-02 18:20:47 | INFO     | run_pipeline | Clean summary: {'math': {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}, 'portuguese': {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}, 'student-mat': {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}, 'student-por': {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}}
+2026-09-02 18:20:47 | INFO     | run_pipeline | === STAGE 3: TRANSFORM ===
+2026-09-02 18:20:47 | WARNING  | transform | Missing G3 column for math. Available columns: ['student_id', 'source_system', 'school;sex;age;address;famsize;Pstatus;Medu;Fedu;Mjob;Fjob;reason;guardian;traveltime;studytime;failures;schoolsup;famsup;paid;activities;nursery;higher;internet;romantic;famrel;freetime;goout;Dalc;Walc;health;absences;G1;G2;G3', 'subject', 'attendance_pct', 'avg_internal_marks', 'assignment_completion_rate']
+2026-09-02 18:20:47 | WARNING  | transform | Missing G3 column for portuguese. Available columns: ['student_id', 'source_system', 'school;sex;age;address;famsize;Pstatus;Medu;Fedu;Mjob;Fjob;reason;guardian;traveltime;studytime;failures;schoolsup;famsup;paid;activities;nursery;higher;internet;romantic;famrel;freetime;goout;Dalc;Walc;health;absences;G1;G2;G3', 'subject', 'attendance_pct', 'avg_internal_marks', 'assignment_completion_rate']
+2026-09-02 18:20:47 | WARNING  | transform | Missing G3 column for student-mat. Available columns: ['student_id', 'source_system', 'school;sex;age;address;famsize;Pstatus;Medu;Fedu;Mjob;Fjob;reason;guardian;traveltime;studytime;failures;schoolsup;famsup;paid;activities;nursery;higher;internet;romantic;famrel;freetime;goout;Dalc;Walc;health;absences;G1;G2;G3', 'subject', 'attendance_pct', 'avg_internal_marks', 'assignment_completion_rate']
+2026-09-02 18:20:47 | WARNING  | transform | Missing G3 column for student-por. Available columns: ['student_id', 'source_system', 'school;sex;age;address;famsize;Pstatus;Medu;Fedu;Mjob;Fjob;reason;guardian;traveltime;studytime;failures;schoolsup;famsup;paid;activities;nursery;higher;internet;romantic;famrel;freetime;goout;Dalc;Walc;health;absences;G1;G2;G3', 'subject', 'attendance_pct', 'avg_internal_marks', 'assignment_completion_rate']
+2026-09-02 18:20:47 | INFO     | transform | Wrote fact table -> data\analytical\fact_student_performance.csv (2088 rows)
+2026-09-02 18:20:47 | INFO     | transform | Wrote dim_student -> data\analytical\dim_student.csv (1693 rows)
+2026-09-02 18:22:37 | INFO     | run_pipeline | === STAGE 1: INGEST ===
+2026-09-02 18:22:37 | INFO     | ingest | Ingested 'math' -> math_20260902T125237Z.csv (395 rows)
+2026-09-02 18:22:37 | INFO     | ingest | Ingested 'portuguese' -> portuguese_20260902T125237Z.csv (649 rows)
+2026-09-02 18:22:37 | INFO     | run_pipeline | === STAGE 2: VALIDATE & CLEAN ===
+2026-09-02 18:22:37 | INFO     | validate_clean | Validating/cleaning source 'math' from math_20260902T125237Z.csv
+2026-09-02 18:22:37 | INFO     | validate_clean | 'math' summary: {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}
+2026-09-02 18:22:37 | INFO     | validate_clean | Validating/cleaning source 'portuguese' from portuguese_20260902T125237Z.csv
+2026-09-02 18:22:37 | INFO     | validate_clean | 'portuguese' summary: {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}
+2026-09-02 18:22:37 | INFO     | validate_clean | Validating/cleaning source 'student-mat' from student-mat.csv
+2026-09-02 18:22:37 | INFO     | validate_clean | 'student-mat' summary: {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}
+2026-09-02 18:22:37 | INFO     | validate_clean | Validating/cleaning source 'student-por' from student-por.csv
+2026-09-02 18:22:37 | INFO     | validate_clean | 'student-por' summary: {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}
+2026-09-02 18:22:37 | INFO     | run_pipeline | Clean summary: {'math': {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}, 'portuguese': {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}, 'student-mat': {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}, 'student-por': {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}}
+2026-09-02 18:22:37 | INFO     | run_pipeline | === STAGE 3: TRANSFORM ===
+2026-09-02 18:24:37 | INFO     | run_pipeline | === STAGE 1: INGEST ===
+2026-09-02 18:24:37 | INFO     | ingest | Ingested 'math' -> math_20260902T125437Z.csv (395 rows)
+2026-09-02 18:24:37 | INFO     | ingest | Ingested 'portuguese' -> portuguese_20260902T125437Z.csv (649 rows)
+2026-09-02 18:24:37 | INFO     | run_pipeline | === STAGE 2: VALIDATE & CLEAN ===
+2026-09-02 18:24:37 | INFO     | validate_clean | Validating/cleaning source 'math' from math_20260902T125437Z.csv
+2026-09-02 18:24:37 | INFO     | validate_clean | 'math' summary: {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}
+2026-09-02 18:24:37 | INFO     | validate_clean | Validating/cleaning source 'portuguese' from portuguese_20260902T125437Z.csv
+2026-09-02 18:24:37 | INFO     | validate_clean | 'portuguese' summary: {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}
+2026-09-02 18:24:37 | INFO     | validate_clean | Validating/cleaning source 'student-mat' from student-mat.csv
+2026-09-02 18:24:37 | INFO     | validate_clean | 'student-mat' summary: {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}
+2026-09-02 18:24:37 | INFO     | validate_clean | Validating/cleaning source 'student-por' from student-por.csv
+2026-09-02 18:24:37 | INFO     | validate_clean | 'student-por' summary: {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}
+2026-09-02 18:24:37 | INFO     | run_pipeline | Clean summary: {'math': {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}, 'portuguese': {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}, 'student-mat': {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}, 'student-por': {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}}
+2026-09-02 18:24:37 | INFO     | run_pipeline | === STAGE 3: TRANSFORM ===
+2026-09-02 18:24:37 | WARNING  | transform | Missing G3 column for math. Available columns: ['student_id,source_system,school,sex,age,address,famsize,Pstatus,Medu,Fedu,Mjob,Fjob,reason,guardian,traveltime,studytime,failures,schoolsup,famsup,paid,activities,nursery,higher,internet,romantic,famrel,freetime,goout,Dalc,Walc,health,absences,G1,G2,G3', 'subject', 'attendance_pct', 'avg_internal_marks', 'assignment_completion_rate']
+2026-09-02 18:24:37 | WARNING  | transform | Missing G3 column for portuguese. Available columns: ['student_id,source_system,school,sex,age,address,famsize,Pstatus,Medu,Fedu,Mjob,Fjob,reason,guardian,traveltime,studytime,failures,schoolsup,famsup,paid,activities,nursery,higher,internet,romantic,famrel,freetime,goout,Dalc,Walc,health,absences,G1,G2,G3', 'subject', 'attendance_pct', 'avg_internal_marks', 'assignment_completion_rate']
+2026-09-02 18:24:37 | WARNING  | transform | Missing G3 column for student-mat. Available columns: ['student_id,source_system,school,sex,age,address,famsize,Pstatus,Medu,Fedu,Mjob,Fjob,reason,guardian,traveltime,studytime,failures,schoolsup,famsup,paid,activities,nursery,higher,internet,romantic,famrel,freetime,goout,Dalc,Walc,health,absences,G1,G2,G3', 'subject', 'attendance_pct', 'avg_internal_marks', 'assignment_completion_rate']
+2026-09-02 18:24:37 | WARNING  | transform | Missing G3 column for student-por. Available columns: ['student_id,source_system,school,sex,age,address,famsize,Pstatus,Medu,Fedu,Mjob,Fjob,reason,guardian,traveltime,studytime,failures,schoolsup,famsup,paid,activities,nursery,higher,internet,romantic,famrel,freetime,goout,Dalc,Walc,health,absences,G1,G2,G3', 'subject', 'attendance_pct', 'avg_internal_marks', 'assignment_completion_rate']
+2026-09-02 18:24:37 | INFO     | transform | Wrote fact table -> data\analytical\fact_student_performance.csv (2088 rows)
+2026-09-02 18:24:37 | INFO     | transform | Wrote dim_student -> data\analytical\dim_student.csv (2088 rows)
+2026-09-02 21:32:38 | INFO     | run_pipeline | === STAGE 1: INGEST ===
+2026-09-02 21:32:38 | INFO     | ingest | Ingested 'math' -> math_20260902T160238Z.csv (395 rows)
+2026-09-02 21:32:38 | INFO     | ingest | Ingested 'portuguese' -> portuguese_20260902T160238Z.csv (649 rows)
+2026-09-02 21:32:38 | INFO     | run_pipeline | === STAGE 2: VALIDATE & CLEAN ===
+2026-09-02 21:32:38 | INFO     | validate_clean | Validating/cleaning source 'math' from math_20260902T160238Z.csv
+2026-09-02 21:32:38 | INFO     | validate_clean | 'math' summary: {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}
+2026-09-02 21:32:38 | INFO     | validate_clean | Validating/cleaning source 'portuguese' from portuguese_20260902T160238Z.csv
+2026-09-02 21:32:38 | INFO     | validate_clean | 'portuguese' summary: {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}
+2026-09-02 21:32:38 | INFO     | run_pipeline | Clean summary: {'math': {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}, 'portuguese': {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}}
+2026-09-02 21:32:38 | INFO     | run_pipeline | === STAGE 3: TRANSFORM ===
+2026-09-02 21:32:39 | INFO     | transform | Wrote fact table -> data\analytical\fact_student_performance.csv (2088 rows)
+2026-09-02 21:32:39 | INFO     | transform | Wrote dim_student -> data\analytical\dim_student.csv (1693 rows)
+2026-09-02 21:32:39 | INFO     | transform | Wrote subject pass/fail mart -> data\analytical\mart_subject_pass_fail.csv
+2026-09-02 21:32:39 | INFO     | transform | Wrote department/semester mart -> data\analytical\mart_department_semester.csv
+2026-09-02 21:32:39 | INFO     | transform | Wrote high-risk student mart -> data\analytical\mart_high_risk_students.csv (0 rows)
+2026-09-02 21:32:39 | INFO     | run_pipeline | Transform summary: {'fact_rows': 2088, 'dim_student_rows': 1693, 'subject_mart_rows': 4, 'department_mart_rows': 8, 'high_risk_rows': 0}
+2026-09-02 21:32:39 | INFO     | run_pipeline | === STAGE 4: LOAD TO POSTGRES ===
+2026-09-02 21:32:39 | ERROR    | run_pipeline | Postgres load skipped/failed ((psycopg2.OperationalError) could not translate host name "2006@localhost" to address: Non-recoverable failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)). Analytical CSVs are still available in data/analytical/ for the Streamlit dashboard fallback.
+2026-09-02 21:32:39 | INFO     | run_pipeline | === PIPELINE RUN COMPLETE ===
+2026-10-08 21:54:03 | INFO     | run_pipeline | === STAGE 1: INGEST ===
+2026-10-08 21:54:03 | INFO     | ingest | Ingested 'math' -> math_20261008T162403Z.csv (395 rows)
+2026-10-08 21:54:03 | INFO     | ingest | Ingested 'portuguese' -> portuguese_20261008T162403Z.csv (649 rows)
+2026-10-08 21:54:03 | INFO     | run_pipeline | === STAGE 2: VALIDATE & CLEAN ===
+2026-10-08 21:54:03 | INFO     | validate_clean | Validating/cleaning source 'math' from math_20261008T162403Z.csv
+2026-10-08 21:54:03 | INFO     | validate_clean | 'math' summary: {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}
+2026-10-08 21:54:03 | INFO     | validate_clean | Validating/cleaning source 'portuguese' from portuguese_20261008T162403Z.csv
+2026-10-08 21:54:03 | INFO     | validate_clean | 'portuguese' summary: {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}
+2026-10-08 21:54:03 | INFO     | run_pipeline | Clean summary: {'math': {'input_rows': 395, 'cleaned_rows': 395, 'rejected_rows': 0}, 'portuguese': {'input_rows': 649, 'cleaned_rows': 649, 'rejected_rows': 0}}
+2026-10-08 21:54:03 | INFO     | run_pipeline | === STAGE 3: TRANSFORM ===
+2026-10-08 21:54:03 | INFO     | transform | Wrote fact table -> C:\Users\shail\Downloads\MLOPS_project_part2\student_pipeline\data\analytical\fact_student_performance.csv (2088 rows)
+2026-10-08 21:54:03 | INFO     | transform | Wrote dim_student -> C:\Users\shail\Downloads\MLOPS_project_part2\student_pipeline\data\analytical\dim_student.csv (1693 rows)
+2026-10-08 21:54:03 | INFO     | transform | Wrote subject pass/fail mart -> C:\Users\shail\Downloads\MLOPS_project_part2\student_pipeline\data\analytical\mart_subject_pass_fail.csv
+2026-10-08 21:54:03 | INFO     | transform | Wrote department/semester mart -> C:\Users\shail\Downloads\MLOPS_project_part2\student_pipeline\data\analytical\mart_department_semester.csv
+2026-10-08 21:54:03 | INFO     | transform | Wrote high-risk student mart -> C:\Users\shail\Downloads\MLOPS_project_part2\student_pipeline\data\analytical\mart_high_risk_students.csv (0 rows)
+2026-10-08 21:54:03 | INFO     | run_pipeline | Transform summary: {'fact_rows': 2088, 'dim_student_rows': 1693, 'subject_mart_rows': 4, 'department_mart_rows': 8, 'high_risk_rows': 0}
+2026-10-08 21:54:03 | INFO     | run_pipeline | === STAGE 4: LOAD TO POSTGRES ===
+2026-10-08 21:54:03 | ERROR    | run_pipeline | Postgres load skipped/failed ((psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: fe_sendauth: no password supplied
+
+(Background on this error at: https://sqlalche.me/e/21/e3q8)). Analytical CSVs are still available in data/analytical/ for the Streamlit dashboard fallback.
+2026-10-08 21:54:03 | INFO     | run_pipeline | === PIPELINE RUN COMPLETE ===

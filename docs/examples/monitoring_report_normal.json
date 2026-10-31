@@ -1,0 +1,191 @@
+{
+  "generated_at": "2026-10-04T17:20:01+00:00",
+  "source": "api_prediction_log(SIMULATED:normal)",
+  "model": {
+    "version": "1",
+    "family": "logistic_regression",
+    "scenario": "mid_term",
+    "trained_at": "2026-10-04T17:18:26.878034+00:00",
+    "threshold": 0.24
+  },
+  "n_predictions": 150,
+  "feature_drift": [
+    {
+      "psi": 0.201,
+      "ks_stat": 0.1115,
+      "ks_pvalue": 0.09121765263162868,
+      "ref_mean": 11.357,
+      "cur_mean": 11.093,
+      "feature": "g2",
+      "type": "numeric",
+      "n": 150,
+      "status": "OK",
+      "chi2_pvalue": null
+    },
+    {
+      "psi": 0.1777,
+      "ks_stat": 0.0525,
+      "ks_pvalue": 0.8730417335608244,
+      "ref_mean": 16.781,
+      "cur_mean": 16.767,
+      "feature": "age",
+      "type": "numeric",
+      "n": 150,
+      "status": "OK",
+      "chi2_pvalue": null
+    },
+    {
+      "psi": 0.1494,
+      "ks_stat": 0.0541,
+      "ks_pvalue": 0.849512039428657,
+      "ref_mean": 1.968,
+      "cur_mean": 1.873,
+      "feature": "studytime",
+      "type": "numeric",
+      "n": 150,
+      "status": "OK",
+      "chi2_pvalue": null
+    },
+    {
+      "psi": 0.142,
+      "ks_stat": 0.0421,
+      "ks_pvalue": 0.9759617222398684,
+      "ref_mean": 1.509,
+      "cur_mean": 1.393,
+      "feature": "dalc",
+      "type": "numeric",
+      "n": 150,
+      "status": "OK",
+      "chi2_pvalue": null
+    },
+    {
+      "psi": 0.1121,
+      "ks_stat": null,
+      "ks_pvalue": null,
+      "ref_mean": null,
+      "cur_mean": null,
+      "feature": "nursery",
+      "type": "categorical",
+      "n": 150,
+      "status": "WARN",
+      "chi2_pvalue": 0.0001556446675716647
+    },
+    {
+      "psi": 0.0998,
+      "ks_stat": 0.1061,
+      "ks_pvalue": 0.1213229865089684,
+      "ref_mean": 11.307,
+      "cur_mean": 10.82,
+      "feature": "g1",
+      "type": "numeric",
+      "n": 150,
+      "status": "OK",
+      "chi2_pvalue": null
+    },
+    {
+      "psi": 0.0958,
+      "ks_stat": 0.0445,
+      "ks_pvalue": 0.9605473140345462,
+      "ref_mean": 3.96,
+      "cur_mean": 3.953,
+      "feature": "famrel",
+      "type": "numeric",
+      "n": 150,
+      "status": "OK",
+      "chi2_pvalue": null
+    },
+    {
+      "psi": 0.0935,
+      "ks_stat": null,
+      "ks_pvalue": null,
+      "ref_mean": null,
+      "cur_mean": null,
+      "feature": "guardian",
+      "type": "categorical",
+      "n": 150,
+      "status": "OK",
+      "chi2_pvalue": 0.002079349139642187
+    }
+  ],
+  "score_drift": {
+    "psi": 0.1472,
+    "ks_pvalue": 0.2249275086814059,
+    "n": 150,
+    "ref_mean_score": 0.2959,
+    "cur_mean_score": 0.3153,
+    "status": "WARN"
+  },
+  "class_distribution": {
+    "reference_fail_rate": 0.2192,
+    "predicted_fail_rate": 0.36,
+    "predicted_fail_rate_shift": 0.0073,
+    "band_mix": {
+      "Low": 0.64,
+      "High": 0.3133,
+      "Medium": 0.0467
+    },
+    "actual_fail_rate": 0.2,
+    "actual_prevalence_shift": -0.0192,
+    "n_labels": 150
+  },
+  "data_quality": {
+    "status": "OK",
+    "n": 150,
+    "issues": []
+  },
+  "performance": {
+    "n_labels": 150,
+    "baseline": {
+      "recall": 0.9362,
+      "precision": 0.5789,
+      "pr_auc": 0.8514,
+      "brier": 0.1011
+    },
+    "current": {
+      "recall": 0.9667,
+      "precision": 0.537,
+      "pr_auc": 0.8108,
+      "brier": 0.114,
+      "accuracy": 0.8267,
+      "f2": 0.8333
+    },
+    "confusion": {
+      "tn": 95,
+      "fp": 25,
+      "fn": 1,
+      "tp": 29
+    },
+    "recall_drop": -0.0305,
+    "pr_auc_drop": 0.0406,
+    "status": "OK"
+  },
+  "service": {
+    "requests": 300,
+    "error_rate_5xx": 0.0,
+    "rejected_rate_4xx": 0.0,
+    "latency_ms": {
+      "p50": 15.03,
+      "p95": 51.12,
+      "p99": 58.37
+    },
+    "by_endpoint": {
+      "/feedback": {
+        "n": 150,
+        "p95_ms": 3.8
+      },
+      "/predict": {
+        "n": 150,
+        "p95_ms": 54.44
+      }
+    },
+    "status": "OK"
+  },
+  "new_labelled_rows": 150,
+  "overall_status": "WARN",
+  "retraining": {
+    "action": "NO_ACTION",
+    "triggers": [],
+    "investigate": [],
+    "model_age_days": 0
+  }
+}
